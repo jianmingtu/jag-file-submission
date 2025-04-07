@@ -1,4 +1,4 @@
-name: Build Efiling API Image and Push to Openshift 4 Registry
+name: Trivy Scan Efiling API Image
 
 on:
   schedule:
