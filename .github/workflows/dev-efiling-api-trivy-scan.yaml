@@ -24,12 +24,17 @@ jobs:
         run: |
           docker compose build efiling-api
 
+      - name: docker image
+        id: docker-image
+        run: |
+          docker images -a
+
       #Run Vulnerability Scan usinig Trivy scanner
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
-          scan-type: jag-file-submission-efiling-api
-          image-ref: image:latest
+          scan-type: image
+          image-ref: jag-file-submission-efiling-api
           format: sarif
           output: trivy-results.sarif
           exit-code: 1
